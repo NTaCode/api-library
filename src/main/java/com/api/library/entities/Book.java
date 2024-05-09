@@ -20,6 +20,9 @@ public class Book {
     private Double price;
     private Boolean isBorrowed;
 
+    public Book(String effectiveJava, String joshuaBloch, String number, int i, double v, boolean b) {
+    }
+
     public long getId() {
         return id;
     }
