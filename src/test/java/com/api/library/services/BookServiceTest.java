@@ -8,6 +8,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.*;
@@ -24,6 +26,7 @@ class BookServiceTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
     }
+
     @Test
     void saveBook() {
         // Create a sample Book object
@@ -44,6 +47,26 @@ class BookServiceTest {
 
     @Test
     void getBook() {
+        // Create a sample Book object
+        Book book = new Book("Effective Java", "Joshua Bloch", "9780134685991", 2018, 45.00, false);
+        book.setId(1L);
+
+        // Mock the behavior of the repository's findById method
+        when(bookRepository.findById(1L)).thenReturn(book);
+
+        // Call the service method
+        Book retrievedBook = bookService.getBook(1L);
+
+        // Verify the findById method was called
+        verify(bookRepository, times(1)).findById(1L);
+
+        // Validate the result
+        assertEquals(book, retrievedBook);
+    }
+
+    @Test
+    void testGetBook_NotFound() {
+
     }
 
     @Test
