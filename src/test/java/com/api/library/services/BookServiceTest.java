@@ -66,7 +66,17 @@ class BookServiceTest {
 
     @Test
     void testGetBook_NotFound() {
+        // Mock the behavior when the book is not found
+        when(bookRepository.findById(2L)).thenReturn(null);
 
+        // Call the service method
+        Book retrievedBook = bookService.getBook(2L);
+
+        // Verify the findById method was called
+        verify(bookRepository, times(1)).findById(2L);
+
+        // Validate that the result is null when the book is not found
+        assertNull(retrievedBook);
     }
 
     @Test
