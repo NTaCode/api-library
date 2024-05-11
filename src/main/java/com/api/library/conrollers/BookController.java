@@ -23,11 +23,13 @@ public class BookController {
     List<Book> findAllBooks() {
        return bookService.getBooks();
     }
+
     @GetMapping("/book")
     public ResponseEntity<Book> getBook(@RequestParam long bookId) {
         Book book = bookService.getBook(bookId);
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
+
     @GetMapping("/booksPrices")
     public List<Book> getProduct(@RequestParam double priceStart,@RequestParam double priceEnd ) {
         List<Book> books = bookService.getBooksByPrices(priceStart,priceEnd);
@@ -52,7 +54,5 @@ public class BookController {
             // Catch other exceptions and return a 500 Internal Server Error
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-
     }
 }
