@@ -3,9 +3,11 @@ package com.api.library.services;
 import com.api.library.entities.User;
 import com.api.library.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserService {
 
     @Autowired

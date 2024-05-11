@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/v1")
 public class BookController {
@@ -31,7 +30,7 @@ public class BookController {
     }
 
     @GetMapping("/booksPrices")
-    public List<Book> getProduct(@RequestParam double priceStart,@RequestParam double priceEnd ) {
+    public List<Book> getBookByPrices(@RequestParam double priceStart,@RequestParam double priceEnd ) {
         List<Book> books = bookService.getBooksByPrices(priceStart,priceEnd);
         return books;
     }
