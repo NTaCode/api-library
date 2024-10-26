@@ -1,8 +1,6 @@
 package com.api.library.conrollers;
 
-import com.api.library.entities.Book;
 import com.api.library.entities.User;
-import com.api.library.services.BookService;
 import com.api.library.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

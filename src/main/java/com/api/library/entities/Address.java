@@ -1,4 +1,4 @@
-package com.api.library.services;
+package com.api.library.entities;
 
 public class Address {
 
